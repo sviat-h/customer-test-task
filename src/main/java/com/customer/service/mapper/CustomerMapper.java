@@ -2,6 +2,7 @@ package com.customer.service.mapper;
 
 import com.customer.model.Customer;
 import com.customer.model.dto.request.CustomerRequestDto;
+import com.customer.model.dto.request.CustomerUpdateRequestDto;
 import com.customer.model.dto.response.CustomerResponseDto;
 import org.springframework.stereotype.Component;
 
@@ -25,5 +26,12 @@ public class CustomerMapper implements RequestDtoMapper<CustomerRequestDto, Cust
         dto.setEmail(customer.getEmail());
         dto.setPhone(customer.getPhone());
         return dto;
+    }
+
+    public Customer mapToModel(CustomerUpdateRequestDto dto) {
+        Customer customer = new Customer();
+        customer.setFullName(dto.getFullName());
+        customer.setPhone(dto.getPhone());
+        return customer;
     }
 }
